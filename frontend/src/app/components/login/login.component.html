@@ -1,0 +1,27 @@
+<div class="row">
+<div class="col-8">
+  <img src="login.png" style="height:100vh; width: 152%;" />
+</div>
+<div class="col-4 d-flex align-items-center">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <mat-form-field appeacloseDialogrance="outline" floatLabel="always" class="w-100 mt-3">
+      <mat-label>User Name</mat-label>
+      <input matInput formControlName="username" type="text" />
+    </mat-form-field>
+
+    <mat-form-field appeacloseDialogrance="outline" floatLabel="always" class="w-100 mt-3">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="text" />
+    </mat-form-field>
+  <div class="d-flex justify-content-between align-items-center">
+    <a routerLink="/components/reset-password" class="pe-3">Forgot Password?</a>
+    <div *ngIf="error" style="color:red">{{ error }}</div>
+    <button class="btn btn-primary" type="submit">Login</button>
+  </div>
+    <!-- <p class="text-center mt-3 text-white">
+    Don't have an account?
+    <a href="#" (click)="openSignup(); $event.preventDefault()">Sign up</a>
+  </p> -->
+</form>
+</div>
+</div>
