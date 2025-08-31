@@ -11,9 +11,6 @@ export class CommonService {
   
   constructor(private http:HttpClient){}
 
-  // getAll(entity: string) {
-  //   return this.http.get<any[]>(`${this.apiUrl}/${entity}`);
-  // }
   getAll(endpoint: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${endpoint}`);
   }

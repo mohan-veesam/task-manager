@@ -7,6 +7,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { ProjectsComponent } from './components/projects/projects.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -19,9 +20,9 @@ export const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'reset-password', component: ResetPasswordComponent },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'user', component: UserComponent },
-      { path: 'projects', component: ProjectsComponent },
+      { path: 'dashboard', component: DashboardComponent,},
+      { path: 'user', component: UserComponent, canActivate: [authGuard], data: { roles: [1] } },
+      { path: 'projects', component: ProjectsComponent, canActivate: [authGuard], data: { roles: [1, 2] } },
       { path: 'tasks', component: TasksComponent },     
     ]
   }

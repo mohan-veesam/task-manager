@@ -17,13 +17,13 @@
            [routerLinkActiveOptions]="{ exact: true }">
            📊 Dash Board
         </a>
-        <a mat-list-item 
+        <a mat-list-item *ngIf="role == 1" 
            routerLink="/components/user" 
            routerLinkActive="active-link"
            [routerLinkActiveOptions]="{ exact: true }">
            🧑‍💼 Employees
         </a>
-        <a mat-list-item 
+        <a mat-list-item *ngIf="role == 1 || role == 2" 
            routerLink="/components/projects" 
            routerLinkActive="active-link"
            [routerLinkActiveOptions]="{ exact: true }">
@@ -40,6 +40,7 @@
       </div>
       <!-- Logout at bottom -->
       <div class="d-flex justify-content-center">
+        <div *ngIf="fullname">👋 Welcome, {{ fullname }} </div>
         <button mat-button (click)="logout()">🚪 Logout</button>
       </div>
 

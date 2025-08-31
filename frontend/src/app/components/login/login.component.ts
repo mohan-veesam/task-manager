@@ -29,7 +29,14 @@ export class LoginComponent {
     this.cs.login(this.loginForm.value).subscribe({
       next: (res: any) => {
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/components/user']) },
+        localStorage.setItem('role', res.role);
+        localStorage.setItem('fullname', res.fullname);
+        localStorage.setItem('username', res.username);
+        localStorage.setItem('id', res.id);
+        // 🔑 Immediately update fullname in AppComponent
+        window.dispatchEvent(new Event('storage'));
+
+        this.router.navigate(['/components/dashboard']) },
       error: (err) => {
         this.error = err.error?.error || 'Login failed';
       }
