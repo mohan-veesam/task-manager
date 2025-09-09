@@ -1,0 +1,16 @@
+.table-container {
+  max-height: 606px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-header-cell {
+  background: #1976d2;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}

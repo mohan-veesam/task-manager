@@ -1,0 +1,61 @@
+
+<ng-container *ngIf="!isAuthPage(); else authContent">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened class="custom-sidenav">
+      
+      <!-- Logo at top -->
+      <div class="logo">
+        <img src="task.png" alt="Logo" style="width: 200px; height: 100px;">
+      </div>
+
+      <!-- Navigation links -->
+       <div style="height: 70vh;">
+      <mat-nav-list>
+        <a mat-list-item 
+           routerLink="/components/dashboard" 
+           routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{ exact: true }">
+           📊 Dash Board
+        </a>
+        <a mat-list-item *ngIf="role == 1" 
+           routerLink="/components/user" 
+           routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{ exact: true }">
+           🧑‍💼 Employees
+        </a>
+        <a mat-list-item *ngIf="role == 1 || role == 2" 
+           routerLink="/components/projects" 
+           routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{ exact: true }">
+           🖥️ Projects
+        </a>
+        <a mat-list-item 
+           routerLink="/components/tasks" 
+           routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{ exact: true }">
+           💹 Tasks
+        </a>
+        <!-- Add more component links here -->
+      </mat-nav-list>
+      </div>
+      <!-- Logout at bottom -->
+      <div class="d-flex justify-content-center">
+        <div *ngIf="fullname">👋 Welcome, {{ fullname }} </div>
+        <button mat-button (click)="logout()">🚪 Logout</button>
+      </div>
+
+    </mat-sidenav>
+
+    <!-- Main Content -->
+    <mat-sidenav-content>
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
+
+<!-- Auth Pages without sidenav -->
+<ng-template #authContent>
+  <router-outlet></router-outlet>
+</ng-template>

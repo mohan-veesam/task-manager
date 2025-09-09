@@ -1,0 +1,37 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.sidenav-container {
+  height: 100vh;
+}
+
+.custom-sidenav {
+  background-color: #f8f9fa;
+  padding: 10px;
+  width: 221px !important;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Active link styling */
+.active-link {
+  background-color: #cce5ff;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Main content styling */
+.main-content {
+  padding: 20px;
+  background-color: #ffffff;
+  height: 100%;
+  overflow: auto;
+}
